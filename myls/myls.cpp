@@ -53,7 +53,9 @@ int main(void) {
             time_t t = time(NULL);
             struct tm *tm_info = localtime(&t);
             char buf[26];
-            strftime(buf, 26, "%Y-%m-%d %H:%M:%S", tm_info);
+            //strftime(buf, 26, "%Y-%m-%d %H:%M:%S", tm_info);
+            //strftime(buf, 26, "%c", tm_info);
+            strftime(buf, 26, "%b %d %H:%M", tm_info);
             //  print
             printf("%c%s %3ld %s %s %15ld %s %s\n", type, permissions, \
                 st.st_nlink, user->pw_name, grp->gr_name, st.st_size, buf, de->d_name);
