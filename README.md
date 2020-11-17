@@ -87,16 +87,15 @@ See ```myls``` folder.
 # Task 4.
 ### 4) Please explain, at a very high-level, how a Unix OS, such as Linux, implements the break-point feature in a debugger.
 ### Answer
-For debugging in Linux ptrace API is used.
-TBD
+For debugging in Linux ptrace API is used. With the help of ptrace function we can attach to another process, read/write the data from the address space of another process, read/write registers of process status, pause/continue the running of the process and so on.
 
 # Task 5.
 ### 5) Suppose you debug a Linux application and put a break-point into a function defined by a dynamically-linked library used by the application. Will that break-point stop any other application that makes use of the same library?
 ### Answer
-TBD
+If using ```gdb``` then we can debug executable and place breakpoints there on any function even if dynamically-linked library is used. In this case breakpoint will raise only during running this application.
 
 # Task 6.
 ### 6) Please translate in English. Don’t metaphrase, just put the idea as you see it into English.
 ```Если пользовательский процесс начал операцию ввода-вывода с устройством, и остановился, ожидая окончания операции в устройстве, то операция в устройстве закончится во время работы какого-то другого процесса в системе. Аппаратное прерывание о завершении операции будет обработано операционной системой. Так как на обработку прерывания требуется некоторое время, то текущий процесс в однопроцессорной системе будет приостановлен. Таким образом, любой процесс в системе непредсказуемо влияет на производительность других процессов независимо от их приоритетов.```
 ### Answer
-```If user process started the IO-operation with the device and then stopped, waiting for the end of operation in it, then operation in the device would end during the another processs working in the system. End of operation hardware interrupt would be handled by the operation system. Due to handling of interrrupt takes some time then current process in the single processsor system will be paused. Thus any process in the system have unpredictable influence on perfomance of other processes regardless of their priorities.```
+```If user process started the IO-operation with the device and then stopped waiting for the end of operation in it, then operation in the device would end during the another processs working in the system. End of hardware interrupt operation  would be handled by the operation system. Due to handling of interrrupt takes some time then current process in the single processsor system will be paused. Thus any process in the system have unpredictable influence on perfomance of other processes regardless of their priorities.```
